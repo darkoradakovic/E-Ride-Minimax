@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Radakovic"
+  given-names: "Darko"
+- family-names: "Singh"
+  given-names: "Anuradha"
+- family-names: "Varde"
+  given-names: "Aparna S."
+  orcid: "https://orcid.org/0000-0002-3170-2510
+- family-names: "Lal"
+  given-names: "Pankaj"
+title: "Enriching Smart Cities by Optimizing Electric Vehicle Ride-Sharing through Game Theory"
+version: 2.0.4
+doi: xxxxx
+date-released: 2022-xx-xx
+url: "https://github.com/darkoradakovic/E-Ride-Minimax/"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Radakovic"
+    given-names: "Darko"
+  - family-names: "Singh"
+    given-names: "Anuradha"
+  - family-names: "Varde"
+    given-names: "Aparna S."
+    orcid: "https://orcid.org/0000-0002-3170-2510
+  - family-names: "Lal"
+    given-names: "Pankaj"
+  doi: "10.0000/00000"
+  journal: "IEEE"
+  month: 9
+  start: 1 # First page number
+  end: 5 # Last page number
+  title: "Enriching Smart Cities by Optimizing Electric Vehicle Ride-Sharing through Game Theory"
+  issue: 1
+  volume: 1
+  year: 2022
