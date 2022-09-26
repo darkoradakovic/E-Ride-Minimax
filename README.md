@@ -7,14 +7,15 @@ Keywords:
 
 Paper publication: <b>Enriching Smart Cities by Optimizing Electric Vehicle Ride-Sharing through Game Theory! </b><br> <br>
 
+<div align="center">
 Darko Radakovic<sup>1,</sup>, Anuradha Singh<sup>1,3</sup>, Aparna S. Varde<sup>1,2,3</sup>, and Pankaj Lal<sup>1,3</sup> <br>
 1. Environmental Science and Management Ph.D. Program, Montclair State University, NJ, USA <br>
 2. Department of Computer Science, Montclair State University, NJ, USA <br>
 3. Clean Energy and Sustainability Analytics Center (CESAC), Montclair State University, NJ, USA  <br>
 (radakovicd1  | singha2 | vardea | lalp)@montclair.edu <br>
 ORCID ID: 0000-0002-3170-2510 (Varde) <br>
-
-
+</div>
+<br><br>
 
 
 This MiniMax E-Ride sharing game allows two players to compete for passengers in a grid adapting the Minimax algorithm, treating EV ride-sharing companies as players. These players can use different strategies as described below. We hypothesize that one player choosing its next move via total passenger-travel distance (longer the distance, larger the profit); and another player via battery usage (ratio of total passenger-travel distance to vehicle-passenger distance: optimizing this ratio enables more travel without recharging.<br>
