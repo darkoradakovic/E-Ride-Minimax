@@ -23,24 +23,24 @@ One can manipulate the number of passengers, the change in passenger numbers (de
 <h3>Quick Start Examples</h3><br>
 
 ```bash
-git clone https://github.com/darkoradakovic/E-Ride-Minimax<br>
-cd E-Ride-Minimax<br>
-pip install -r requirements.txt  # install<br><br>
+git clone https://github.com/darkoradakovic/E-Ride-Minimax
+cd E-Ride-Minimax
+pip install -r requirements.txt  # install
 ```
 
 <b>Inference</b>
 ```bash
-python e_ride_competition.py --sim 100 --save<br>
-                          --ptot  # number of passengers  (minimum ±50)<br>
-                          --size  # size of matrix  (x by y)<br>
-                          --change  # chose passengers numbers change: 'falling', 'stable', 'increasing'<br>
-                          --minimax  # decide if minimax algorithm is turned on for player2<br>
-                          --strategy1   #  choose from: '1' or '3'. (see below for overview)<br>
-                          --strategy2  # choose from: '2', '4', '5' or '6'<br>
-                          --last_loc1  # Player1 starting location<br>
-                          --last_loc2  # Player2 starting location<br>
-                          --sim  # Simulation total<br>
-                          --save  # save results to pickle file  <br>
+python e_ride_competition.py --sim 100 --save
+                          --ptot  # number of passengers  (minimum ±50)
+                          --size  # size of matrix  (x by y)
+                          --change  # chose passengers numbers change: 'falling', 'stable', 'increasing'
+                          --minimax  # decide if minimax algorithm is turned on for player2
+                          --strategy1   #  choose from: '1' or '3'. (see below for overview)
+                          --strategy2  # choose from: '2', '4', '5' or '6'
+                          --last_loc1  # Player1 starting location
+                          --last_loc2  # Player2 starting location
+                          --sim  # Simulation total
+                          --save  # save results to pickle file
 ```
 
 <b>STRATEGIES OVERVIEW</b>
