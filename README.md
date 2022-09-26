@@ -3,8 +3,7 @@
 
 ![presentation_image2](https://user-images.githubusercontent.com/84730858/192179820-1a25de27-6fe5-43b3-bbed-7a6ab225b200.jpg)
 
-Keywords: AI in smart cities, climate change, decarbonizing, energy, game theory, Minimax, ride-sharing EV, smart economy, smart environment, smart mobility, traffic, transportation![image](https://user-images.githubusercontent.com/84730858/192184875-ba5d82b8-5154-446f-a967-2b0187c459e4.png)
-<br><br>
+Keywords: AI in smart cities, climate change, decarbonizing, energy, game theory, Minimax, ride-sharing EV, smart economy, smart environment, smart mobility, traffic, transportation<br><br>
 
 Paper publication: <b>Enriching Smart Cities by Optimizing Electric Vehicle Ride-Sharing through Game Theory</b><br> <br>
 
