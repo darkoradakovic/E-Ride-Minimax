@@ -3,6 +3,7 @@
 
 ![presentation_image2](https://user-images.githubusercontent.com/84730858/192179820-1a25de27-6fe5-43b3-bbed-7a6ab225b200.jpg)
 
+Keywords: 
 
 Paper publication: <b>Enriching Smart Cities by Optimizing Electric Vehicle Ride-Sharing through Game Theory! </b><br> <br>
 
@@ -21,14 +22,26 @@ One can manipulate the number of passengers, the change in passenger numbers (de
 
 <h3>Quick Start Examples</h3><br>
 
-
+```bash
 git clone https://github.com/darkoradakovic/E-Ride-Minimax<br>
 cd E-Ride-Minimax<br>
 pip install -r requirements.txt  # install<br><br>
+```
 
-<b>Inference</b><br>
+<b>Inference</b>
+```bash
 python e_ride_competition.py --sim 100 --save<br>
-
+                          --ptot  # number of passengers  (minimum ±50)<br>
+                          --size  # size of matrix  (x by y)<br>
+                          --change  # chose passengers numbers change: 'falling', 'stable', 'increasing'<br>
+                          --minimax  # decide if minimax algorithm is turned on for player2<br>
+                          --strategy1   #  choose from: '1' or '3'. (see below for overview)<br>
+                          --strategy2  # choose from: '2', '4', '5' or '6'<br>
+                          --last_loc1  # Player1 starting location<br>
+                          --last_loc2  # Player2 starting location<br>
+                          --sim  # Simulation total<br>
+                          --save  # save results to pickle file  <br>
+```
 
 <b>STRATEGIES OVERVIEW</b>
 <ul>
