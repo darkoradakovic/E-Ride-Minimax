@@ -6,7 +6,7 @@
 
 Paper publication: <b>Enriching Smart Cities by Optimizing Electric Vehicle Ride-Sharing through Game Theory! </b><br> <br>
 
-Darko Radakovic1,, Anuradha Singh1,3, Aparna S. Varde1,2,3, and Pankaj Lal1,3 <br>
+Darko Radakovic<sup>1,</sup>, Anuradha Singh<sup>1,3</sup>, Aparna S. Varde<sup>1,2,3</sup>, and Pankaj Lal<sup>1,3</sup> <br>
 1. Environmental Science and Management Ph.D. Program, Montclair State University, NJ, USA <br>
 2. Department of Computer Science, Montclair State University, NJ, USA <br>
 3. Clean Energy and Sustainability Analytics Center (CESAC), Montclair State University, NJ, USA  <br>
