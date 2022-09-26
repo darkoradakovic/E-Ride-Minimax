@@ -1,0 +1,12 @@
+# E-Ride-Minimax requirements
+# Usage: pip install -r requirements.txt
+
+# Base ----------------------------------------
+matplotlib>=3.2.2
+numpy>=1.22.3
+Pillow>=9.0.1
+statistics 1.0.3.5
+
+# Plotting ------------------------------------
+pandas>=1.1.4
+
