@@ -27,7 +27,7 @@ cd E-Ride-Minimax<br>
 pip install -r requirements.txt  # install<br><br>
 
 <b>Inference</b><br>
-python e_ride_competition --sim 100 --save<br>
+python e_ride_competition.py --sim 100 --save<br>
 
 
 <b>STRATEGIES OVERVIEW</b>
