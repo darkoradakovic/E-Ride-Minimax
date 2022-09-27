@@ -17,9 +17,10 @@ ORCID ID: 0000-0002-3170-2510 (Varde) <br>
 </div>
 <br><br>
 
-
+<p>
 This MiniMax E-Ride sharing game allows two players to compete for passengers in a grid adapting the Minimax algorithm, treating EV ride-sharing companies as players. These players can use different strategies as described below. We hypothesize that one player choosing its next move via total passenger-travel distance (longer the distance, larger the profit); and another player via battery usage (ratio of total passenger-travel distance to vehicle-passenger distance: optimizing this ratio enables more travel without recharging.<br>
-One can manipulate the number of passengers, the change in passenger numbers (decreasing, increasing or stable), the grid size (default is 5x10 cells), the player strategy mode, the player starting location, the number of simulations and whether to enable MiniMax.<br><br>
+One can manipulate the number of passengers, the change in passenger numbers (decreasing, increasing or stable), the grid size (default is 5x10 cells), the player strategy mode, the player starting location, the number of simulations and whether to enable MiniMax. You can also select if you wish to save (as a pickle file) and/or plot the Scores and Battery usage (as JPEG).</p><br><br>
+
 
 <h3>Quick Start Examples</h3><br>
 
