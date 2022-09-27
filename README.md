@@ -22,7 +22,7 @@ This MiniMax E-Ride sharing game allows two players to compete for passengers in
 One can manipulate the number of passengers, the change in passenger numbers (decreasing, increasing or stable), the grid size (default is 5x10 cells), the player strategy mode, the player starting location, the number of simulations and whether to enable MiniMax. You can also select if you wish to save (as a pickle file) and/or plot the Scores and Battery usage (as JPEG).</p><br>
 
 <h3>Google Colab script</h3>
-<a href="https://colab.research.google.com/drive/1Pw6-R3JpJd3gdtlzSUDx0R_llnBCdY5W?usp=sharing" target="_blank">Ready to use Google Colab script</a><br><br>
+<p><a href="https://colab.research.google.com/drive/1Pw6-R3JpJd3gdtlzSUDx0R_llnBCdY5W?usp=sharing" target="_blank">Ready to use Google Colab script</a></p><br><br>
 
 
 <h3>Quick Start Examples</h3>
