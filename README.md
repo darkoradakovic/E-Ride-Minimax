@@ -19,10 +19,13 @@ ORCID ID: 0000-0002-3170-2510 (Varde) <br>
 
 <p>
 This MiniMax E-Ride sharing game allows two players to compete for passengers in a grid adapting the Minimax algorithm, treating EV ride-sharing companies as players. These players can use different strategies as described below. We hypothesize that one player choosing its next move via total passenger-travel distance (longer the distance, larger the profit); and another player via battery usage (ratio of total passenger-travel distance to vehicle-passenger distance: optimizing this ratio enables more travel without recharging.<br>
-One can manipulate the number of passengers, the change in passenger numbers (decreasing, increasing or stable), the grid size (default is 5x10 cells), the player strategy mode, the player starting location, the number of simulations and whether to enable MiniMax. You can also select if you wish to save (as a pickle file) and/or plot the Scores and Battery usage (as JPEG).</p><br><br>
+One can manipulate the number of passengers, the change in passenger numbers (decreasing, increasing or stable), the grid size (default is 5x10 cells), the player strategy mode, the player starting location, the number of simulations and whether to enable MiniMax. You can also select if you wish to save (as a pickle file) and/or plot the Scores and Battery usage (as JPEG).</p><br>
+
+<h3>Google Colab script</h3>
+<a href"https://colab.research.google.com/drive/1Pw6-R3JpJd3gdtlzSUDx0R_llnBCdY5W?usp=sharing">Ready to use Google Colab script</a><br><br>
 
 
-<h3>Quick Start Examples</h3><br>
+<h3>Quick Start Examples</h3>
 
 ```bash
 git clone https://github.com/darkoradakovic/E-Ride-Minimax
@@ -30,7 +33,7 @@ cd E-Ride-Minimax
 pip install -r requirements.txt  # install
 ```
 
-<b>Inference</b>
+<h3>Inference</h3>
 ```bash
 python e_ride_competition.py --sim 100 --save
                           --ptot  # number of passengers  (minimum ±50)
@@ -45,7 +48,7 @@ python e_ride_competition.py --sim 100 --save
                           --save  # save results to pickle file
 ```
 
-<b>STRATEGIES OVERVIEW</b>
+<h3>STRATEGIES OVERVIEW</h3>
 <ul>
 <li>[Strategy 1] 'basic' [For player 1] find cell with most passengers, regardless their distance, chooses first passenger from list in this cell (old taxis without app strategy, by going to busy areas)</li>
 <li>[Strategy 2] 'low' [For player 2] find closest passenger lowest distance, disregarding profit</li>
