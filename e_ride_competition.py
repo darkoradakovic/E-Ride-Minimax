@@ -1,8 +1,8 @@
-# WORKING
-# by Darko Radakovic
-# 09/20/2022
+# Authors: Darko Radakovic and Anuradha Singh
+# 09/26/2022
 # Montclair State University
 # version 7 (Github ready)
+# Copyright 2022, cite if using this code
 
 import numpy as np
 import random    # build in
@@ -16,7 +16,7 @@ import os     # build in
 from pathlib import Path    # build in
 import sys    # build in
 import datetime    # build in
-
+import visualisation
 
 # STRATEGIES OVERVIEW
 # [Strategy 1] 'basic' [For player 1] find cell with most passengers, regardless their distance, chooses first passenger from list in this cell (old taxis without app strategy, by going to busy areas)
@@ -36,12 +36,14 @@ parser.add_argument('--ptot', type=int, default=100, help='passenger number') # 
 parser.add_argument('--size', type=int, default=[5,10], help='grid size, list input of two values')   # size of matrix  (x by y)
 parser.add_argument('--change', type=str, default='increasing', help='passengers numbers change "falling", "stable" or "increasing"')   # chose passengers numbers change: 'falling', 'stable', 'increasing'
 parser.add_argument('--minimax', type=int, default=1, help='minimax algorithm for player2, 1 if true, 0 if false')   # decide if minimax algorithm is turned on for player2
-parser.add_argument('--strategy1', type=int, default=3, help='strategy for player 1, "passenger" or "basic"')   #  choose from: 'passenger' or 'basic'
-parser.add_argument('--strategy2', type=int, default=6, help='strategy for player 2, "low", "distance_ratio", "battery" or "passenger2"')   # choose from: 'low', 'distance_ratio', 'battery' or 'passenger2'
+parser.add_argument('--strategy1', type=int, default=3, help='strategy for player 1, "passenger" or "basic"')   #  choose from: '1' or '3'
+parser.add_argument('--strategy2', type=int, default=6, help='strategy for player 2, "low", "distance_ratio", "battery" or "passenger2"')   # choose from: '2', '4', '5' or '6'
 parser.add_argument('--last_loc1', type=int, default=[0,0], help='Player1 starting location, list input of two values')   # Player1 starting location
 parser.add_argument('--last_loc2', type=int, default=[0,0], help='Player2 starting location, list input of two values')   # Player2 starting location
 parser.add_argument('--sim', type=int, default=100, help='number of simulations')   # Simulation total
 parser.add_argument('--save', action='store_true', help='save results to pickle file')
+parser.add_argument('--plot', action='store_true', help='save plots of score and battery')
+# parser.add_argument('--video', action='store_true', help='save animation')
 args = parser.parse_args()
 
 ## PARAMETERS Can be set with flag
@@ -55,7 +57,8 @@ last_loc1 = args.last_loc1  # Car1 starting location, multiple players
 last_loc2 = args.last_loc2  # Car2 starting location, multiple players
 sim = args.sim       # amount of simulations
 save_output = args.save  # save results
-
+plot = args.plot   # save plots of score and battery
+# video = args.video   # save animation
 
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[0]  # yolov5 strongsort root directory
@@ -87,6 +90,7 @@ count = 0  # start time (no need to change)
 # --------------------------------------------------
 # ---------------AUTO---------------------
 # --------------------------------------------------
+# Constructing Grid, filling with passengers
 def build_matrix(ptot,size):
     passengers = []
     for i in range(0, ptot):
@@ -158,6 +162,7 @@ def add_passengers(passengers,size, mode):
     return passengers, new_p
 
 # --------------------------------------------------
+# Calculating distances and profits
 def eridegame(matrix, passengers, last_loc, new_p):
     ### MATRIX
     # Update Matrix with newly added passengers
@@ -225,6 +230,7 @@ def eridegame(matrix, passengers, last_loc, new_p):
 
 #-----------------------------------------#
 ### ------------ MINIMAX ---------------###
+# Calculating Scores and Battery usage per turn based on strategies when MiniMax algorith is enabled
 def minimax_algorithm(matrix, passengers, battery_to_p, battery_ps_pe, last_loc, player, strategy1, strategy2, minimax):
 
     if player == 1:
@@ -296,7 +302,7 @@ def minimax_algorithm(matrix, passengers, battery_to_p, battery_ps_pe, last_loc,
             # MINIMAX
             ### BATTERY CALCULATION, passenger with lowest battery demand
             if minimax == 1:  # if minimax is turned on
-                # if the distance to the closest passenger over distance to passenger multiplied by 1.5 is larger than the max profit possible
+                # if the distance to the closest passenger over distance to passenger multiplied by 1.05 is larger than the max profit possible
                 if min(battery_p) * 2.5 > max(battery_ps_pe):  # 1.05 is most optimal
                     pass_remove2 = battery_p.index(min(battery_p))  # choose the highest profit/distance passenger
                     battery2 = 0
@@ -344,7 +350,7 @@ def minimax_algorithm(matrix, passengers, battery_to_p, battery_ps_pe, last_loc,
             loc2 = []
             # MINIMAX for BATTERY
             if minimax == 1:  # if minimax is turned on
-                # if profit over distance to passenger multiplied by 1.5 is larger than the max profit possible
+                # if profit over distance to passenger multiplied by 1.05 is larger than the max profit possible
                 if max(prof_dist) * 1.05 > max(battery_ps_pe):  # 1.05 is most optimal
                     pass_remove2 = prof_dist.index(max(prof_dist))  # choose the highest profit/distance passenger
                 else:
@@ -429,7 +435,7 @@ def minimax_algorithm(matrix, passengers, battery_to_p, battery_ps_pe, last_loc,
 
             # MINIMAX for BATTERY
             if minimax == 1:  # if minimax is turned on
-                # if profit over distance to passenger multiplied by 1.5 is larger than the max profit possible
+                # if profit over distance to passenger multiplied by 1.05 is larger than the max profit possible
                 if ((battery_ps_pe[comb[best_route.index(min(best_route))][0]] + battery_ps_pe[comb[best_route.index(min(best_route))][1]]) / 2) * 1.05 > max(battery_ps_pe):  # 1.05 is most optimal
                     pass_remove2 = comb[best_route.index(min(best_route))][0]  # choose the highest profit/distance passenger
                 else:
@@ -576,17 +582,6 @@ for r in range(0,sim):  # 100 simulations with scores appended in one list
     last_loc1, last_loc2 = args.last_loc1, args.last_loc2   # reset starting location for next simulation
 
 
-# Append all output into list: strategy_passenger
-strategy_passenger = []
-# strategy_passenger.append([score_list1,battery_list1,score_list2,battery_list2])   # use for multiple runs and combine in single file
-strategy_passenger = [score_list1,battery_list1,score_list2,battery_list2]   # save output
-
-if save_output:
-    # # SAVE OUTPUT
-    with open(str(ROOT)+"/strategy_passenger"+"_"+str(date), "wb") as fp:   #Pickling
-        pickle.dump(strategy_passenger, fp)
-
-
 
 # Print Statistics in terminal
 print('FOCUS ON HIGH PASSENGER NUMBER')
@@ -601,13 +596,25 @@ print('difference in Passenger score in %',"{:.2f}".format(
 (statistics.mean(score_list1) - statistics.mean(score_list2) ) / statistics.mean(score_list1)*100 ))
 print('difference in battery usage in %',"{:.2f}".format(
 (statistics.mean(battery_list1) - statistics.mean(battery_list2) ) / statistics.mean(battery_list1)*100 ))
-print('battery saving efficiency strategy player 2 over 1:',"{:.2f}".format(
+print('Efficiency to save battery at the cost of profit for a {} strategy:',"{:.2f}".format(strategy2,
     ((statistics.mean(battery_list1) - statistics.mean(battery_list2) ) / statistics.mean(battery_list1) ) / ((statistics.mean(score_list1) - statistics.mean(score_list2) ) / statistics.mean(score_list1) )
 ))
 
-# Print all values in one row for easy copy paste into spreadsheet
-# print([statistics.mean(score_list1),statistics.mean(battery_list1),
-# statistics.mean(score_list2),statistics.mean(battery_list2)
-# ])
 
 
+# Save score and battery results as pickle file
+strategy_passenger = []  # Append all output into list: strategy_passenger
+# strategy_passenger.append([score_list1,battery_list1,score_list2,battery_list2])   # use for multiple runs and combine in single file
+strategy_passenger = [score_list1,battery_list1,score_list2,battery_list2]   # save output
+
+if save_output:
+    with open(str(ROOT) + "/strategy_passenger" + "_" + str(date), "wb") as fp:  # Pickling
+        pickle.dump(strategy_passenger, fp)
+
+# Save score and battery usage for both players as boxplots
+if plot:
+    visualisation.boxplot(score_list1, score_list2, battery_list1, battery_list2)
+
+# Save animation
+if video:
+    visualisation.animation(frames, size)
